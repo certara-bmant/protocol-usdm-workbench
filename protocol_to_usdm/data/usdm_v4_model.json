@@ -1,0 +1,4761 @@
+{
+ "Abbreviation": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "abbreviatedText": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "expandedText": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Activity": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "definedProcedures": {
+    "card": "0..*",
+    "types": [
+     "Procedure"
+    ],
+    "rel": "V"
+   },
+   "biomedicalConceptIds": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConcept"
+    ],
+    "rel": "R"
+   },
+   "nextId": {
+    "card": "0..1",
+    "types": [
+     "Activity"
+    ],
+    "rel": "R"
+   },
+   "timelineId": {
+    "card": "0..1",
+    "types": [
+     "ScheduleTimeline"
+    ],
+    "rel": "R"
+   },
+   "childIds": {
+    "card": "0..*",
+    "types": [
+     "Activity"
+    ],
+    "rel": "R"
+   },
+   "previousId": {
+    "card": "0..1",
+    "types": [
+     "Activity"
+    ],
+    "rel": "R"
+   },
+   "bcSurrogateIds": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptSurrogate"
+    ],
+    "rel": "R"
+   },
+   "bcCategoryIds": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptCategory"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Address": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "lines": {
+    "card": "0..*",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "district": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "city": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "postalCode": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "state": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "country": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "AdministrableProduct": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "administrableDoseForm": {
+    "card": "1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "sourcing": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "productDesignation": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "pharmacologicClass": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "identifiers": {
+    "card": "0..*",
+    "types": [
+     "AdministrableProductIdentifier"
+    ],
+    "rel": "V"
+   },
+   "properties": {
+    "card": "0..*",
+    "types": [
+     "AdministrableProductProperty"
+    ],
+    "rel": "V"
+   },
+   "ingredients": {
+    "card": "0..*",
+    "types": [
+     "Ingredient"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "AdministrableProductIdentifier": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "scopeId": {
+    "card": "1",
+    "types": [
+     "Organization"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "AdministrableProductProperty": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "quantity": {
+    "card": "0..1",
+    "types": [
+     "Quantity"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Administration": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "dose": {
+    "card": "0..1",
+    "types": [
+     "Quantity"
+    ],
+    "rel": "V"
+   },
+   "frequency": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "route": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "duration": {
+    "card": "1",
+    "types": [
+     "Duration"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "administrableProductId": {
+    "card": "0..1",
+    "types": [
+     "AdministrableProduct"
+    ],
+    "rel": "R"
+   },
+   "medicalDeviceId": {
+    "card": "0..1",
+    "types": [
+     "MedicalDevice"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "AliasCode": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "standardCode": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "standardCodeAliases": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "AnalysisPopulation": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "subsetOfIds": {
+    "card": "0..*",
+    "types": [
+     "PopulationDefinition"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "AssignedPerson": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "personName": {
+    "card": "1",
+    "types": [
+     "PersonName"
+    ],
+    "rel": "V"
+   },
+   "jobTitle": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "organizationId": {
+    "card": "0..1",
+    "types": [
+     "Organization"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "BiomedicalConcept": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "synonyms": {
+    "card": "0..*",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "reference": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "properties": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptProperty"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "BiomedicalConceptCategory": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "memberIds": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConcept"
+    ],
+    "rel": "R"
+   },
+   "childIds": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptCategory"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "BiomedicalConceptProperty": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "isRequired": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "isEnabled": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "datatype": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "responseCodes": {
+    "card": "0..*",
+    "types": [
+     "ResponseCode"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "BiomedicalConceptSurrogate": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "reference": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "BiospecimenRetention": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "isRetained": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "includesDNA": {
+    "card": "0..1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Characteristic": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "dictionaryId": {
+    "card": "0..1",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Code": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "codeSystem": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "codeSystemVersion": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "decode": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "CommentAnnotation": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "codes": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Condition": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "dictionaryId": {
+    "card": "0..1",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "R"
+   },
+   "contextIds": {
+    "card": "0..*",
+    "types": [
+     "Activity",
+     "ScheduledActivityInstance"
+    ],
+    "rel": "R"
+   },
+   "appliesToIds": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptCategory",
+     "Procedure",
+     "Activity",
+     "BiomedicalConcept",
+     "BiomedicalConceptSurrogate"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ConditionAssignment": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "condition": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "conditionTargetId": {
+    "card": "1",
+    "types": [
+     "ScheduledInstance"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "DocumentContentReference": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "sectionNumber": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "sectionTitle": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "appliesToId": {
+    "card": "1",
+    "types": [
+     "StudyDefinitionDocument"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Duration": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "quantity": {
+    "card": "0..1",
+    "types": [
+     "QuantityRange"
+    ],
+    "rel": "V"
+   },
+   "durationWillVary": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "reasonDurationWillVary": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "EligibilityCriterion": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "identifier": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "category": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "criterionItemId": {
+    "card": "1",
+    "types": [
+     "EligibilityCriterionItem"
+    ],
+    "rel": "R"
+   },
+   "nextId": {
+    "card": "0..1",
+    "types": [
+     "EligibilityCriterion"
+    ],
+    "rel": "R"
+   },
+   "previousId": {
+    "card": "0..1",
+    "types": [
+     "EligibilityCriterion"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "EligibilityCriterionItem": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "dictionaryId": {
+    "card": "0..1",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Encounter": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "environmentalSettings": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "contactModes": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "transitionEndRule": {
+    "card": "0..1",
+    "types": [
+     "TransitionRule"
+    ],
+    "rel": "V"
+   },
+   "nextId": {
+    "card": "0..1",
+    "types": [
+     "Encounter"
+    ],
+    "rel": "R"
+   },
+   "transitionStartRule": {
+    "card": "0..1",
+    "types": [
+     "TransitionRule"
+    ],
+    "rel": "V"
+   },
+   "scheduledAtId": {
+    "card": "0..1",
+    "types": [
+     "Timing"
+    ],
+    "rel": "R"
+   },
+   "previousId": {
+    "card": "0..1",
+    "types": [
+     "Encounter"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Endpoint": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "dictionaryId": {
+    "card": "0..1",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "R"
+   },
+   "level": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "purpose": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Estimand": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "populationSummary": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "analysisPopulationId": {
+    "card": "1",
+    "types": [
+     "AnalysisPopulation"
+    ],
+    "rel": "R"
+   },
+   "variableOfInterestId": {
+    "card": "1",
+    "types": [
+     "Endpoint"
+    ],
+    "rel": "R"
+   },
+   "intercurrentEvents": {
+    "card": "1..*",
+    "types": [
+     "IntercurrentEvent"
+    ],
+    "rel": "V"
+   },
+   "interventionIds": {
+    "card": "1..*",
+    "types": [
+     "StudyIntervention"
+    ],
+    "rel": "R"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ExtensionAttribute": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "url": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "valueString": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "valueBoolean": {
+    "card": "0..1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "valueInteger": {
+    "card": "0..1",
+    "types": [
+     "integer"
+    ],
+    "rel": "V"
+   },
+   "valueId": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "valueQuantity": {
+    "card": "0..1",
+    "types": [
+     "Quantity"
+    ],
+    "rel": "V"
+   },
+   "valueRange": {
+    "card": "0..1",
+    "types": [
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "valueCode": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "valueAliasCode": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "valueExtensionClass": {
+    "card": "0..1",
+    "types": [
+     "ExtensionClass"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ExtensionClass": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "url": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "1..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "GeographicScope": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "GovernanceDate": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "dateValue": {
+    "card": "1",
+    "types": [
+     "date"
+    ],
+    "rel": "V"
+   },
+   "geographicScopes": {
+    "card": "1..*",
+    "types": [
+     "GeographicScope"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Identifier": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "scopeId": {
+    "card": "1",
+    "types": [
+     "Organization"
+    ],
+    "rel": "R"
+   }
+  }
+ },
+ "Indication": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "isRareDisease": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "codes": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Ingredient": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "role": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "substance": {
+    "card": "1",
+    "types": [
+     "Substance"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "IntercurrentEvent": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "dictionaryId": {
+    "card": "0..1",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "R"
+   },
+   "strategy": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "InterventionalStudyDesign": {
+  "source": "CDISC DDF-RA dataStructure.yml (MIT)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "rationale": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "therapeuticAreas": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "studyType": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "characteristics": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "studyPhase": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   },
+   "activities": {
+    "card": "0..*",
+    "types": [
+     "Activity"
+    ],
+    "rel": "V"
+   },
+   "biospecimenRetentions": {
+    "card": "0..*",
+    "types": [
+     "BiospecimenRetention"
+    ],
+    "rel": "V"
+   },
+   "eligibilityCriteria": {
+    "card": "1..*",
+    "types": [
+     "EligibilityCriterion"
+    ],
+    "rel": "V"
+   },
+   "encounters": {
+    "card": "0..*",
+    "types": [
+     "Encounter"
+    ],
+    "rel": "V"
+   },
+   "estimands": {
+    "card": "0..*",
+    "types": [
+     "Estimand"
+    ],
+    "rel": "V"
+   },
+   "indications": {
+    "card": "0..*",
+    "types": [
+     "Indication"
+    ],
+    "rel": "V"
+   },
+   "objectives": {
+    "card": "0..*",
+    "types": [
+     "Objective"
+    ],
+    "rel": "V"
+   },
+   "scheduleTimelines": {
+    "card": "0..*",
+    "types": [
+     "ScheduleTimeline"
+    ],
+    "rel": "V"
+   },
+   "arms": {
+    "card": "1..*",
+    "types": [
+     "StudyArm"
+    ],
+    "rel": "V"
+   },
+   "studyCells": {
+    "card": "1..*",
+    "types": [
+     "StudyCell"
+    ],
+    "rel": "V"
+   },
+   "documentVersionIds": {
+    "card": "0..*",
+    "types": [
+     "StudyDefinitionDocumentVersion"
+    ],
+    "rel": "R"
+   },
+   "elements": {
+    "card": "0..*",
+    "types": [
+     "StudyElement"
+    ],
+    "rel": "V"
+   },
+   "studyInterventionIds": {
+    "card": "0..*",
+    "types": [
+     "StudyIntervention"
+    ],
+    "rel": "R"
+   },
+   "epochs": {
+    "card": "1..*",
+    "types": [
+     "StudyEpoch"
+    ],
+    "rel": "V"
+   },
+   "population": {
+    "card": "1",
+    "types": [
+     "StudyDesignPopulation"
+    ],
+    "rel": "V"
+   },
+   "model": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "subTypes": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "blindingSchema": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   },
+   "intentTypes": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "analysisPopulations": {
+    "card": "0..*",
+    "types": [
+     "AnalysisPopulation"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Masking": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "isMasked": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "MedicalDevice": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "hardwareVersion": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "softwareVersion": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "embeddedProductId": {
+    "card": "0..1",
+    "types": [
+     "AdministrableProduct"
+    ],
+    "rel": "R"
+   },
+   "sourcing": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "identifiers": {
+    "card": "0..*",
+    "types": [
+     "MedicalDeviceIdentifier"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "NarrativeContent": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "sectionNumber": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "sectionTitle": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "displaySectionNumber": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "displaySectionTitle": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "childIds": {
+    "card": "0..*",
+    "types": [
+     "NarrativeContent"
+    ],
+    "rel": "R"
+   },
+   "previousId": {
+    "card": "0..1",
+    "types": [
+     "NarrativeContent"
+    ],
+    "rel": "R"
+   },
+   "nextId": {
+    "card": "0..1",
+    "types": [
+     "NarrativeContent"
+    ],
+    "rel": "R"
+   },
+   "contentItemId": {
+    "card": "0..1",
+    "types": [
+     "NarrativeContentItem"
+    ],
+    "rel": "R"
+   }
+  }
+ },
+ "NarrativeContentItem": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Objective": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "level": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "endpoints": {
+    "card": "0..*",
+    "types": [
+     "Endpoint"
+    ],
+    "rel": "V"
+   },
+   "dictionaryId": {
+    "card": "0..1",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Organization": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "identifierScheme": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "identifier": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "legalAddress": {
+    "card": "0..1",
+    "types": [
+     "Address"
+    ],
+    "rel": "V"
+   },
+   "managedSites": {
+    "card": "0..*",
+    "types": [
+     "StudySite"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Procedure": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "procedureType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "studyInterventionId": {
+    "card": "0..1",
+    "types": [
+     "StudyIntervention"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Quantity": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "value": {
+    "card": "1",
+    "types": [
+     "float"
+    ],
+    "rel": "V"
+   },
+   "unit": {
+    "card": "0..1",
+    "types": [
+     "AliasCode"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Range": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "minValue": {
+    "card": "1",
+    "types": [
+     "Quantity"
+    ],
+    "rel": "V"
+   },
+   "maxValue": {
+    "card": "1",
+    "types": [
+     "Quantity"
+    ],
+    "rel": "V"
+   },
+   "isApproximate": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ResponseCode": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "isEnabled": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ScheduleTimeline": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "mainTimeline": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "entryCondition": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "entryId": {
+    "card": "1",
+    "types": [
+     "ScheduledActivityInstance",
+     "ScheduledDecisionInstance"
+    ],
+    "rel": "R"
+   },
+   "exits": {
+    "card": "0..*",
+    "types": [
+     "ScheduleTimelineExit"
+    ],
+    "rel": "V"
+   },
+   "timings": {
+    "card": "0..*",
+    "types": [
+     "Timing"
+    ],
+    "rel": "V"
+   },
+   "instances": {
+    "card": "0..*",
+    "types": [
+     "ScheduledActivityInstance",
+     "ScheduledDecisionInstance"
+    ],
+    "rel": "V"
+   },
+   "plannedDuration": {
+    "card": "0..1",
+    "types": [
+     "Duration"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ScheduleTimelineExit": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "ScheduledActivityInstance": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "defaultConditionId": {
+    "card": "0..1",
+    "types": [
+     "ScheduledActivityInstance",
+     "ScheduledDecisionInstance"
+    ],
+    "rel": "R"
+   },
+   "epochId": {
+    "card": "0..1",
+    "types": [
+     "StudyEpoch"
+    ],
+    "rel": "R"
+   },
+   "timelineId": {
+    "card": "0..1",
+    "types": [
+     "ScheduleTimeline"
+    ],
+    "rel": "R"
+   },
+   "timelineExitId": {
+    "card": "0..1",
+    "types": [
+     "ScheduleTimelineExit"
+    ],
+    "rel": "R"
+   },
+   "activityIds": {
+    "card": "0..*",
+    "types": [
+     "Activity"
+    ],
+    "rel": "R"
+   },
+   "encounterId": {
+    "card": "0..1",
+    "types": [
+     "Encounter"
+    ],
+    "rel": "R"
+   }
+  }
+ },
+ "StudyArm": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "dataOriginDescription": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "dataOriginType": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "populationIds": {
+    "card": "0..*",
+    "types": [
+     "StudyDesignPopulation",
+     "StudyCohort"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyCell": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "armId": {
+    "card": "1",
+    "types": [
+     "StudyArm"
+    ],
+    "rel": "R"
+   },
+   "epochId": {
+    "card": "1",
+    "types": [
+     "StudyEpoch"
+    ],
+    "rel": "R"
+   },
+   "elementIds": {
+    "card": "1..*",
+    "types": [
+     "StudyElement"
+    ],
+    "rel": "R"
+   }
+  }
+ },
+ "StudyCohort": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "includesHealthySubjects": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "plannedEnrollmentNumber": {
+    "card": "0..1",
+    "types": [
+     "Quantity",
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "plannedCompletionNumber": {
+    "card": "0..1",
+    "types": [
+     "Quantity",
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "plannedSex": {
+    "card": "0..2",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "plannedAge": {
+    "card": "0..1",
+    "types": [
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "criterionIds": {
+    "card": "0..*",
+    "types": [
+     "EligibilityCriterion"
+    ],
+    "rel": "R"
+   },
+   "characteristics": {
+    "card": "0..*",
+    "types": [
+     "Characteristic"
+    ],
+    "rel": "V"
+   },
+   "indicationIds": {
+    "card": "0..*",
+    "types": [
+     "Indication"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyDefinitionDocument": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "language": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "templateName": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "versions": {
+    "card": "0..*",
+    "types": [
+     "StudyDefinitionDocumentVersion"
+    ],
+    "rel": "V"
+   },
+   "childIds": {
+    "card": "0..*",
+    "types": [
+     "StudyDefinitionDocument"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyDefinitionDocumentVersion": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "version": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "status": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "dateValues": {
+    "card": "0..*",
+    "types": [
+     "GovernanceDate"
+    ],
+    "rel": "V"
+   },
+   "contents": {
+    "card": "0..*",
+    "types": [
+     "NarrativeContent"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyDesignPopulation": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "includesHealthySubjects": {
+    "card": "1",
+    "types": [
+     "boolean"
+    ],
+    "rel": "V"
+   },
+   "plannedEnrollmentNumber": {
+    "card": "0..1",
+    "types": [
+     "Quantity",
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "plannedCompletionNumber": {
+    "card": "0..1",
+    "types": [
+     "Quantity",
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "plannedSex": {
+    "card": "0..2",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "plannedAge": {
+    "card": "0..1",
+    "types": [
+     "Range"
+    ],
+    "rel": "V"
+   },
+   "criterionIds": {
+    "card": "0..*",
+    "types": [
+     "EligibilityCriterion"
+    ],
+    "rel": "R"
+   },
+   "cohorts": {
+    "card": "0..*",
+    "types": [
+     "StudyCohort"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyElement": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "transitionStartRule": {
+    "card": "0..1",
+    "types": [
+     "TransitionRule"
+    ],
+    "rel": "V"
+   },
+   "transitionEndRule": {
+    "card": "0..1",
+    "types": [
+     "TransitionRule"
+    ],
+    "rel": "V"
+   },
+   "studyInterventionIds": {
+    "card": "0..*",
+    "types": [
+     "StudyIntervention"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyEpoch": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "previousId": {
+    "card": "0..1",
+    "types": [
+     "StudyEpoch"
+    ],
+    "rel": "R"
+   },
+   "nextId": {
+    "card": "0..1",
+    "types": [
+     "StudyEpoch"
+    ],
+    "rel": "R"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyIdentifier": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "scopeId": {
+    "card": "1",
+    "types": [
+     "Organization"
+    ],
+    "rel": "R"
+   }
+  }
+ },
+ "StudyIntervention": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "role": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "minimumResponseDuration": {
+    "card": "0..1",
+    "types": [
+     "Quantity"
+    ],
+    "rel": "V"
+   },
+   "codes": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "administrations": {
+    "card": "0..*",
+    "types": [
+     "Administration"
+    ],
+    "rel": "V"
+   },
+   "productDesignation": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "pharmacologicClass": {
+    "card": "0..1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyRole": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "code": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "appliesToIds": {
+    "card": "0..*",
+    "types": [
+     "StudyVersion",
+     "StudyDesign"
+    ],
+    "rel": "R"
+   },
+   "assignedPersons": {
+    "card": "0..*",
+    "types": [
+     "AssignedPerson"
+    ],
+    "rel": "V"
+   },
+   "organizationIds": {
+    "card": "0..*",
+    "types": [
+     "Organization"
+    ],
+    "rel": "R"
+   },
+   "masking": {
+    "card": "0..1",
+    "types": [
+     "Masking"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyTitle": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "StudyVersion": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "versionIdentifier": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "rationale": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "documentVersionIds": {
+    "card": "0..*",
+    "types": [
+     "StudyDefinitionDocumentVersion"
+    ],
+    "rel": "R"
+   },
+   "dateValues": {
+    "card": "0..*",
+    "types": [
+     "GovernanceDate"
+    ],
+    "rel": "V"
+   },
+   "amendments": {
+    "card": "0..*",
+    "types": [
+     "StudyAmendment"
+    ],
+    "rel": "V"
+   },
+   "businessTherapeuticAreas": {
+    "card": "0..*",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "studyIdentifiers": {
+    "card": "1..*",
+    "types": [
+     "StudyIdentifier"
+    ],
+    "rel": "V"
+   },
+   "referenceIdentifiers": {
+    "card": "0..*",
+    "types": [
+     "ReferenceIdentifier"
+    ],
+    "rel": "V"
+   },
+   "studyDesigns": {
+    "card": "0..*",
+    "types": [
+     "InterventionalStudyDesign",
+     "ObservationalStudyDesign"
+    ],
+    "rel": "V"
+   },
+   "titles": {
+    "card": "1..*",
+    "types": [
+     "StudyTitle"
+    ],
+    "rel": "V"
+   },
+   "eligibilityCriterionItems": {
+    "card": "0..*",
+    "types": [
+     "EligibilityCriterionItem"
+    ],
+    "rel": "V"
+   },
+   "narrativeContentItems": {
+    "card": "0..*",
+    "types": [
+     "NarrativeContentItem"
+    ],
+    "rel": "V"
+   },
+   "abbreviations": {
+    "card": "0..*",
+    "types": [
+     "Abbreviation"
+    ],
+    "rel": "V"
+   },
+   "roles": {
+    "card": "0..*",
+    "types": [
+     "StudyRole"
+    ],
+    "rel": "V"
+   },
+   "organizations": {
+    "card": "0..*",
+    "types": [
+     "Organization"
+    ],
+    "rel": "V"
+   },
+   "studyInterventions": {
+    "card": "0..*",
+    "types": [
+     "StudyIntervention"
+    ],
+    "rel": "V"
+   },
+   "administrableProducts": {
+    "card": "0..*",
+    "types": [
+     "AdministrableProduct"
+    ],
+    "rel": "V"
+   },
+   "medicalDevices": {
+    "card": "0..*",
+    "types": [
+     "MedicalDevice"
+    ],
+    "rel": "V"
+   },
+   "productOrganizationRoles": {
+    "card": "0..*",
+    "types": [
+     "ProductOrganizationRole"
+    ],
+    "rel": "V"
+   },
+   "biomedicalConcepts": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConcept"
+    ],
+    "rel": "V"
+   },
+   "bcCategories": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptCategory"
+    ],
+    "rel": "V"
+   },
+   "bcSurrogates": {
+    "card": "0..*",
+    "types": [
+     "BiomedicalConceptSurrogate"
+    ],
+    "rel": "V"
+   },
+   "dictionaries": {
+    "card": "0..*",
+    "types": [
+     "SyntaxTemplateDictionary"
+    ],
+    "rel": "V"
+   },
+   "conditions": {
+    "card": "0..*",
+    "types": [
+     "Condition"
+    ],
+    "rel": "V"
+   },
+   "notes": {
+    "card": "0..*",
+    "types": [
+     "CommentAnnotation"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Study": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "versions": {
+    "card": "0..*",
+    "types": [
+     "StudyVersion"
+    ],
+    "rel": "V"
+   },
+   "documentedBy": {
+    "card": "0..*",
+    "types": [
+     "StudyDefinitionDocument"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "Timing": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "type": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "value": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "valueLabel": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "relativeToFrom": {
+    "card": "1",
+    "types": [
+     "Code"
+    ],
+    "rel": "V"
+   },
+   "relativeFromScheduledInstanceId": {
+    "card": "1",
+    "types": [
+     "ScheduledActivityInstance",
+     "ScheduledDecisionInstance"
+    ],
+    "rel": "R"
+   },
+   "relativeToScheduledInstanceId": {
+    "card": "0..1",
+    "types": [
+     "ScheduledActivityInstance",
+     "ScheduledDecisionInstance"
+    ],
+    "rel": "R"
+   },
+   "windowLower": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "windowUpper": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "windowLabel": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ },
+ "TransitionRule": {
+  "source": "manual (USDM v4 spec, checked vs CTX101 example)",
+  "attributes": {
+   "id": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "extensionAttributes": {
+    "card": "0..*",
+    "types": [
+     "ExtensionAttribute"
+    ],
+    "rel": "V"
+   },
+   "instanceType": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "name": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "label": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "description": {
+    "card": "0..1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   },
+   "text": {
+    "card": "1",
+    "types": [
+     "string"
+    ],
+    "rel": "V"
+   }
+  }
+ }
+}

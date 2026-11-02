@@ -1,0 +1,3 @@
+warning: BC 'Randomization' (C25196) has no CDISC BC properties - review / request BC
+warning: BC 'C-Reactive Protein Measurement' (C64548) has no CDISC BC properties - review / request BC
+wrote examples/MK-1654-005_usdm_v4.json; validation: 0 error(s), 15 warning(s)

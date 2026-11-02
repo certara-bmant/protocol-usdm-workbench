@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*.xlsx
+.vscode/
+.idea/
+
+# Local scratch
+*.tmp
+tmp/
+
+# Uncomment to keep source protocols / study data out of the repository
+# inputs/*.pdf
+# inputs/*.json

@@ -1,0 +1,8 @@
+warning: BC 'Randomization' (C25196) has no CDISC BC properties - review / request BC
+warning: BC 'Hepatitis A Virus Antibody IgM Measurement' (C92271) has no CDISC BC properties - review / request BC
+warning: BC 'Hepatitis B Virus Core Antibody Measurement' (C96660) has no CDISC BC properties - review / request BC
+warning: BC 'C-Reactive Protein Measurement' (C64548) has no CDISC BC properties - review / request BC
+warning: BC 'Fibrinogen Measurement' (C64606) has no CDISC BC properties - review / request BC
+warning: BC 'Reactogenicity' (C179193) has no CDISC BC properties - review / request BC
+warning: BC 'Serious Adverse Event' (C41335) has no CDISC BC properties - review / request BC
+wrote examples/219659_usdm_v4.json; validation: 0 error(s), 20 warning(s)

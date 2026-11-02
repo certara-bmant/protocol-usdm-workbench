@@ -1,0 +1,9 @@
+{
+  "c reactive protein": {"code": "C64548", "name": "C-Reactive Protein Measurement", "version": "26.10d", "query": "C-Reactive Protein Measurement (match)", "retrieved": "2026-11-02"},
+  "fibrinogen": {"code": "C64606", "name": "Fibrinogen Measurement", "version": "26.10d", "query": "Fibrinogen Measurement (match)", "retrieved": "2026-11-02"},
+  "randomization": {"code": "C25196", "name": "Randomization", "version": "26.10d", "query": "Randomization (match)", "retrieved": "2026-11-02"},
+  "saes": {"code": "C41335", "name": "Serious Adverse Event", "version": "26.10d", "query": "Serious Adverse Event (match)", "retrieved": "2026-11-02"},
+  "reactogenicity": {"code": "C179193", "name": "Reactogenicity", "version": "26.10d", "query": "Reactogenicity (contains, top hit)", "retrieved": "2026-11-02"},
+  "hepatitis b core antibody": {"code": "C96660", "name": "Hepatitis B Virus Core Antibody Measurement", "version": "26.10d", "query": "Hepatitis B Virus Core Antibody Measurement (match)", "retrieved": "2026-11-02"},
+  "anti hav igm": {"code": "C92271", "name": "Hepatitis A Virus Antibody IgM Measurement", "version": "26.10d", "query": "Hepatitis A Virus IgM Antibody (contains, top hit of 63197 - verify)", "retrieved": "2026-11-02"}
+}

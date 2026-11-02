@@ -1,0 +1,18 @@
+== extraction report ==
+  REVIEW identifier 'Study ID 219659' scoped to 'GlaxoSmithKline' (taken from PDF metadata Author)
+  protocol history (amendments not modelled in this version): Version 1.0 [Original, 07Aug2018]; Version 1.1 [Nonsubstantial amendment 1, 16Nov2018]; Version 2.0 [Substantial amendment 1, 28Feb2019]
+  objectives: 5, endpoints: 21
+  eligibility criteria: 10 inclusion, 18 exclusion
+  abbreviations: 73
+  narrative sections: 13 (top-level only; sub-section numbers are not in the PDF text layer)
+  SoA 'Table 1 Schedule of Assessments - Stage 1: Subjects 18 to 64 Years of ' (p30): 5 visit columns, 22 rows, 20 footnotes, 2 redacted (CCI) row(s) skipped
+  REVIEW p30: 2 SoA row(s) redacted as 'CCI' - content unknown
+  SoA 'Table 2 Schedule of Assessments - Stage 2: Subjects 65 to 85 Years of ' (p33): 5 visit columns, 20 rows, 18 footnotes, 1 redacted (CCI) row(s) skipped
+  REVIEW p33: 1 SoA row(s) redacted as 'CCI' - content unknown
+  SoA 'Table 3 Schedule of Assessments - Stage 2: Subjects 65 to 85 Years of ' (p35): 3 visit columns, 17 rows, 13 footnotes, 1 redacted (CCI) row(s) skipped
+  REVIEW p35: 1 SoA row(s) redacted as 'CCI' - content unknown
+  lab appendix panels: Hematology (6), Biochemistry (14), Coagulation Profile (3), Hepatic Profile (6), Urinalysis (15), Pregnancy Test (1), Urine Drug Screening (5), Virology (4), Immunogenicity (4)
+  REVIEW blinding: protocol says 'observer-blinded' (participant + evaluators blinded); mapped to Double Blind Study
+  activities: 23 (10 auto-accepted, 13 need review)
+  biomedical concepts: 75 by method {'exact (curated synonym)': 44, 'exact': 23, 'evs': 6, 'footnote term-spotting + evs': 1, 'footnote term-spotting + exact (curated synonym)': 1}; 9 flagged for review
+  surrogates: 11 -> Physical Examination, Virology: Anti-HCV, HIV-1/2 Antibody Presence in Serum or Plasma, Urine Drugs of Abuse Screen, Leukocyte Esterase Presence in Urine, Urine Microscopy, Serum sample for Immunogenicity, Serum sample for Anti-biotin Antibodies, Whole-blood sample for T-cell Immune Response Measurement, MAAEs including PIMMCs and NOCDs, Vaccine assignment

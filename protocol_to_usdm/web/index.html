@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Protocol → USDM workbench</title>
+<style>
+:root{
+  --bg:#f5f6f8;--panel:#fff;--ink:#1d2433;--muted:#6b7385;--line:#e2e5eb;--accent:#1f4e78;--accent2:#2f6fa8;
+  --ok:#1e7d4f;--okbg:#e5f4ec;--warn:#9a6200;--warnbg:#fff4dc;--err:#b42318;--errbg:#fde8e7;--sur:#6b3fa0;--surbg:#f1eafa;
+  --evs:#0b6e79;--evsbg:#e3f4f5;--r:8px;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+*{box-sizing:border-box}
+body{margin:0;font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+header{display:flex;align-items:center;gap:12px;padding:10px 18px;background:var(--accent);color:#fff;position:sticky;top:0;z-index:5}
+header h1{font-size:16px;margin:0;font-weight:600;white-space:nowrap}
+header .src{opacity:.85;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+header .dirty{background:#ffd166;color:#4a3500;border-radius:10px;padding:1px 8px;font-size:12px;margin-left:6px}
+button,.btn{font:inherit;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:6px;padding:6px 12px;cursor:pointer}
+button:hover{border-color:var(--accent2)}
+button.primary{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+header button{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff}
+header button.primary{background:#fff;color:var(--accent);border-color:#fff}
+button:disabled{opacity:.45;cursor:default}
+button.sm{padding:2px 8px;font-size:12px}
+.layout{display:flex;min-height:calc(100vh - 52px)}
+nav{width:190px;flex:none;background:var(--panel);border-right:1px solid var(--line);padding:12px 8px}
+nav a{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:6px;color:var(--ink);text-decoration:none;cursor:pointer}
+nav a.active{background:#e8eff7;color:var(--accent);font-weight:600}
+nav a .badge{background:var(--warnbg);color:var(--warn);border-radius:10px;padding:0 7px;font-size:12px}
+main{flex:1;padding:18px 22px;min-width:0}
+h2{font-size:18px;margin:0 0 12px}
+h3{font-size:14px;margin:18px 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.tile b{display:block;font-size:22px}
+.tile span{color:var(--muted);font-size:12px}
+.kv{display:grid;grid-template-columns:170px 1fr;gap:4px 14px}
+.kv dt{color:var(--muted)}
+.kv dd{margin:0}
+.muted{color:var(--muted)}
+.pill{display:inline-block;border-radius:10px;padding:0 8px;font-size:12px;white-space:nowrap}
+.p-ok{background:var(--okbg);color:var(--ok)} .p-warn{background:var(--warnbg);color:var(--warn)}
+.p-err{background:var(--errbg);color:var(--err)} .p-sur{background:var(--surbg);color:var(--sur)} .p-evs{background:var(--evsbg);color:var(--evs)}
+table{border-collapse:collapse;width:100%}
+th,td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12px;background:#fafbfc;position:sticky;top:52px}
+.report{font-family:var(--mono);font-size:12px;white-space:pre-wrap;max-height:340px;overflow:auto;background:#fafbfc;border:1px solid var(--line);border-radius:6px;padding:10px}
+.report .rv{background:var(--warnbg);color:var(--warn)}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.tabs button.on{background:var(--accent2);color:#fff;border-color:var(--accent2)}
+.soa{overflow:auto;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.soa table{width:auto;min-width:100%}
+.soa th,.soa td{border:1px solid var(--line);text-align:center;white-space:nowrap}
+.soa th{position:static}
+.soa td.act{text-align:left;white-space:normal;min-width:280px;max-width:420px;cursor:pointer}
+.soa td.act:hover{background:#f2f6fb}
+.soa td.cell{cursor:pointer;min-width:74px;font-weight:600}
+.soa td.cell:hover{background:#eef4fb}
+.soa td.cell.x{background:#e8f1fa;color:var(--accent)}
+.soa sup{color:var(--warn);font-weight:600;margin-left:1px}
+.soa .hdr input{width:64px;text-align:center;border:1px solid transparent;background:transparent;font:inherit}
+.soa .hdr input:hover,.soa .hdr input:focus{border-color:var(--line);background:#fff}
+.legend{font-size:12.5px;margin-top:10px}
+.legend div{margin:2px 0}
+.split{display:grid;grid-template-columns:300px 1fr;gap:14px;align-items:start}
+.list{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);max-height:calc(100vh - 140px);overflow:auto}
+.list .it{padding:8px 12px;border-bottom:1px solid var(--line);cursor:pointer}
+.list .it:hover{background:#f6f8fb}
+.list .it.on{background:#e8eff7}
+.list .it small{display:block;color:var(--muted)}
+.search{display:flex;gap:8px;margin:8px 0}
+.search input{flex:1}
+input[type=text],select,textarea{font:inherit;border:1px solid var(--line);border-radius:6px;padding:6px 8px;background:#fff;width:100%}
+textarea{min-height:60px}
+.ed td{padding:0}
+.ed td div[contenteditable]{padding:6px 8px;min-height:30px;outline:none;max-height:120px;overflow:auto}
+.ed td div[contenteditable]:focus{background:#fffbe8;box-shadow:inset 0 0 0 1px #e3c66f}
+.ed td.ct div[contenteditable]{color:var(--accent)}
+.toolbar{display:flex;gap:8px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.empty{text-align:center;padding:70px 20px;color:var(--muted)}
+.empty .big{font-size:20px;color:var(--ink);margin-bottom:8px}
+.drop{border:2px dashed #b9c4d3;border-radius:12px;padding:40px;margin:18px auto;max-width:620px;background:#fff}
+.drop.over{border-color:var(--accent2);background:#f0f6fd}
+.overlay{position:fixed;inset:0;background:rgba(20,30,50,.35);display:none;align-items:center;justify-content:center;z-index:20}
+.overlay.on{display:flex}
+.overlay .box{background:#fff;border-radius:10px;padding:22px 28px;min-width:280px;text-align:center}
+.spin{width:28px;height:28px;border:3px solid #d6deea;border-top-color:var(--accent2);border-radius:50%;animation:s 1s linear infinite;margin:0 auto 10px}
+@keyframes s{to{transform:rotate(360deg)}}
+.toast{position:fixed;right:18px;bottom:18px;background:#222b3a;color:#fff;padding:10px 14px;border-radius:8px;opacity:0;transition:.25s;z-index:30;max-width:420px}
+.toast.on{opacity:1}
+pre.json{font-family:var(--mono);font-size:12px;max-height:420px;overflow:auto;background:#0f1724;color:#d6e2f0;padding:12px;border-radius:6px}
+.ev{font-size:12px;color:var(--muted);max-width:520px}
+.split>div{min-width:0}
+.card{overflow-x:auto}
+.card th{position:static}
+.search{flex-wrap:wrap}
+@media (max-width:1100px){.split{grid-template-columns:1fr}.list{max-height:260px}}
+@media (max-width:820px){nav{width:150px}main{padding:14px}header h1{font-size:14px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Protocol → USDM workbench</h1>
+  <div class="src" id="src">No study loaded</div>
+  <input type="file" id="file" accept=".pdf,.xlsx,.json" hidden>
+  <button onclick="document.getElementById('file').click()">Open…</button>
+  <button id="bSample" onclick="loadSample()">Load 219659 sample</button>
+  <button id="bXlsx" onclick="downloadXlsx()" disabled>Download workbook</button>
+  <button id="bBuild" class="primary" onclick="buildUsdm()" disabled>Build &amp; validate</button>
+</header>
+<div class="layout">
+  <nav id="nav"></nav>
+  <main id="main"></main>
+</div>
+<div class="overlay" id="ov"><div class="box"><div class="spin"></div><div id="ovMsg">Working…</div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ------------------------------------------------------------------ state
+const S = {schema:null, data:null, report:"", source:"", built:null, dirty:false, view:"overview",
+           tl:0, act:null, sheet:"Eligibility", issueFilter:"error"};
+const VIEWS = [["overview","Overview"],["schedule","Schedule of activities"],["bcs","Biomedical concepts"],
+               ["review","Review queue"],["sheets","Data sheets"],["build","Build & validate"]];
+const OK_STATUS = new Set(["auto-accepted","accepted (reviewer)"]);
+
+const $ = s => document.querySelector(s);
+const esc = v => String(v ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const jsq = v => esc(JSON.stringify(String(v ?? "")));
+const split = v => String(v ?? "").split(";").map(x => x.trim()).filter(Boolean);
+const join = a => a.filter(Boolean).join("; ") || null;
+
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.classList.add("on"); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove("on"),3200); }
+function busy(msg){ $("#ovMsg").textContent=msg; $("#ov").classList.add("on"); }
+function idle(){ $("#ov").classList.remove("on"); }
+async function api(path, opts={}){
+  const r = await fetch(path, opts);
+  const ct = r.headers.get("content-type")||"";
+  const body = ct.includes("json") ? await r.json() : await r.blob();
+  if(!r.ok) throw new Error(body.error || r.statusText);
+  return body;
+}
+function touch(){ S.dirty=true; S.built=null; header(); }
+
+// ------------------------------------------------------------------ loading
+$("#file").addEventListener("change", e => { if(e.target.files[0]) openFile(e.target.files[0]); e.target.value=""; });
+async function openFile(f){
+  const ext = f.name.split(".").pop().toLowerCase();
+  const route = {pdf:"/api/extract", xlsx:"/api/import/xlsx", json:"/api/import/json"}[ext];
+  if(!route) return toast("Use a .pdf protocol, a .xlsx workbook or a USDM .json");
+  busy(ext==="pdf" ? `Extracting ${f.name} – parsing synopsis, SoA tables and mapping BCs…` : `Importing ${f.name}…`);
+  try{ setData(await api(`${route}?name=${encodeURIComponent(f.name)}`, {method:"POST", body:await f.arrayBuffer()})); toast(`Loaded ${f.name}`); }
+  catch(e){ toast("Failed: "+e.message); }
+  finally{ idle(); }
+}
+async function loadSample(){
+  busy("Loading sample workbook…");
+  try{ setData(await api("/api/sample")); }catch(e){ toast("Failed: "+e.message); } finally{ idle(); }
+}
+function setData(r){
+  S.data=r.data; S.report=r.report||""; S.source=r.source||""; S.built=null; S.dirty=false; S.tl=0; S.act=null;
+  for(const k of Object.keys(S.schema.list_sheets)) S.data[k] = S.data[k] || [];
+  for(const k of Object.keys(S.schema.kv_sheets)) S.data[k] = S.data[k] || {};
+  S.data.SoA = S.data.SoA || [];
+  render();
+}
+
+// ------------------------------------------------------------------ helpers over data
+const rows = sh => S.data?.[sh] || [];
+const bcByName = n => rows("BiomedicalConcepts").find(b => b.name===n);
+const surByName = n => rows("BCSurrogates").find(b => b.name===n);
+function statusPill(st){
+  if(!st) return "";
+  const cls = OK_STATUS.has(st) ? "p-ok" : "p-warn";
+  return `<span class="pill ${cls}">${esc(st)}</span>`;
+}
+function methodPill(m){
+  if(!m) return "";
+  const c = /surrogate/.test(m) ? "p-sur" : /evs/.test(m) ? "p-evs" : /fuzzy|footnote/.test(m) ? "p-warn" : "p-ok";
+  return `<span class="pill ${c}">${esc(m)}</span>`;
+}
+function reviewItems(){
+  if(!S.data) return [];
+  const out=[];
+  rows("BiomedicalConcepts").forEach(b=>{ if(!OK_STATUS.has(b.review_status)) out.push({kind:"BC", name:b.name, obj:b, why:b.method, ev:b.evidence}); });
+  rows("BCSurrogates").forEach(b=>{ if(!OK_STATUS.has(b.review_status)) out.push({kind:"Surrogate", name:b.name, obj:b, why:"no CDISC BC", ev:b.description||b.evidence}); });
+  S.report.split("\n").filter(l=>/REVIEW/.test(l)).forEach(l=>out.push({kind:"Extraction", name:l.replace(/^\s*REVIEW\s*/,""), obj:null, why:"report"}));
+  return out;
+}
+function activitiesUsing(name){ return rows("Activities").filter(a => split(a.biomedical_concepts).includes(name) || split(a.surrogates).includes(name)).map(a=>a.label||a.name); }
+
+// ------------------------------------------------------------------ chrome
+function header(){
+  $("#src").innerHTML = S.data ? `${esc(S.data.Study?.name||"")} · ${esc(S.source)}${S.dirty?'<span class="dirty">edited</span>':''}` : "No study loaded";
+  $("#bXlsx").disabled = $("#bBuild").disabled = !S.data;
+  $("#bSample").style.display = S.schema?.sample ? "" : "none";
+  const n = reviewItems().length;
+  $("#nav").innerHTML = VIEWS.map(([k,l]) => `<a class="${S.view===k?'active':''}" onclick="go('${k}')">${l}${k==="review"&&n?`<span class="badge">${n}</span>`:""}${k==="build"&&S.built?`<span class="pill ${S.built.issues.some(i=>i.severity==='error')?'p-err':'p-ok'}">${S.built.issues.filter(i=>i.severity==='error').length} err</span>`:""}</a>`).join("");
+}
+function go(v){ S.view=v; render(); window.scrollTo(0,0); }
+function render(){
+  header();
+  const m=$("#main");
+  if(!S.data){ m.innerHTML = emptyView(); wireDrop(); return; }
+  m.innerHTML = ({overview:overview, schedule:schedule, bcs:bcView, review:review, sheets:sheets, build:buildView}[S.view])();
+  if(S.view==="bcs") wireBcSearch();
+}
+
+function emptyView(){
+  return `<div class="empty"><div class="big">Start with a protocol</div>
+  <div>Drop a protocol PDF, a filled-in template workbook (.xlsx) or an existing USDM v4 JSON file.</div>
+  <div class="drop" id="drop">Drop a file here or <a href="#" onclick="document.getElementById('file').click();return false">browse</a></div>
+  ${S.schema?.sample?`<button onclick="loadSample()">or load the 219659 example</button>`:""}
+  <p class="muted" style="margin-top:28px">BC library: ${S.schema?.library.bcs??"–"} CDISC BCs, ${S.schema?.library.surrogates??"–"} surrogates · EVS live lookups ${S.schema?.library.evs_online?"on":"off"}</p></div>`;
+}
+function wireDrop(){
+  const d=$("#drop"); if(!d) return;
+  ["dragenter","dragover"].forEach(e=>d.addEventListener(e,ev=>{ev.preventDefault();d.classList.add("over");}));
+  ["dragleave","drop"].forEach(e=>d.addEventListener(e,ev=>{ev.preventDefault();d.classList.remove("over");}));
+  d.addEventListener("drop",ev=>{ const f=ev.dataTransfer.files[0]; if(f) openFile(f); });
+}
+
+// ------------------------------------------------------------------ overview
+function overview(){
+  const st=S.data.Study||{}, pop=S.data.Population||{};
+  const tiles=[["Timelines",S.data.SoA.length],["Activities",rows("Activities").length],["Encounters",rows("Encounters").length],
+    ["Biomedical concepts",rows("BiomedicalConcepts").length],["Surrogates",rows("BCSurrogates").length],
+    ["Criteria",rows("Eligibility").length],["Objectives",rows("Objectives").length],["Endpoints",rows("Endpoints").length],
+    ["Need review",reviewItems().length]];
+  const titles=rows("Titles").map(t=>`<div><span class="muted">${esc(t.type)}:</span> ${esc(t.text)}</div>`).join("");
+  const ids=rows("Identifiers").map(i=>`<span class="pill p-ok" style="margin-right:6px">${esc(i.text)} <span class="muted">(${esc(i.organization)})</span></span>`).join("");
+  const keys=[["Phase","phase"],["Study type","study_type"],["Blinding","blinding"],["Model","model"],["Sponsor","sponsor"],
+    ["Version","version"],["Version rationale","version_rationale"],["Approval date","approval_date"],["Sub-types","sub_types"]];
+  const rep=esc(S.report).split("\n").map(l=>/REVIEW/.test(l)?`<span class="rv">${l}</span>`:l).join("\n");
+  return `<h2>${esc(st.label||st.name)}</h2>
+  <div class="grid" style="margin-bottom:14px">${tiles.map(([l,v])=>`<div class="tile"><b>${v}</b><span>${l}</span></div>`).join("")}</div>
+  <div class="card">${titles}<div style="margin-top:8px">${ids}</div></div>
+  <div class="card"><dl class="kv">${keys.map(([l,k])=>`<dt>${l}</dt><dd>${esc(st[k])||'<span class="muted">–</span>'}</dd>`).join("")}
+  <dt>Population</dt><dd>${esc(pop.min_age)}–${esc(pop.max_age)} ${esc(pop.age_unit||"")} · planned ${esc(pop.planned_enrollment)} · ${esc(pop.sex)}</dd>
+  <dt>Arms</dt><dd>${rows("Arms").map(a=>`${esc(a.name)} <span class="muted">(${esc(a.type)}; ${esc(a.cohorts||"")})</span>`).join("<br>")}</dd></dl></div>
+  ${S.report?`<h3>Extraction report</h3><div class="report">${rep}</div>`:""}`;
+}
+
+// ------------------------------------------------------------------ schedule
+function schedule(){
+  const tls=S.data.SoA; if(!tls.length) return `<div class="empty">No schedule timelines.</div>`;
+  const t=tls[Math.min(S.tl,tls.length-1)];
+  const acts=Object.fromEntries(rows("Activities").map(a=>[a.name,a]));
+  const hdr=[["Epoch","epoch"],["Encounter","encounter"],["Day","day"],["Window −","window_lower"],["Window +","window_upper"],["Label","label"],["Notes","notes"]];
+  const marks=c=>{ const m=String(c||"").replace(/^x/i,""); return m?`<sup>${esc(m)}</sup>`:""; };
+  const head=hdr.map(([l,k])=>`<tr class="hdr"><th style="text-align:left">${l}</th>${t.columns.map((c,ci)=>
+      k==="epoch"||k==="encounter" ? `<th>${esc(c[k])}</th>` :
+      `<th><input value="${esc(c[k])}" onchange="setCol(${ci},'${k}',this.value)"></th>`).join("")}</tr>`).join("");
+  const body=t.rows.map((r,ri)=>{ const a=acts[r.activity]||{};
+    const nb=split(a.biomedical_concepts).length, ns=split(a.surrogates).length;
+    return `<tr><td class="act" onclick="openAct(${jsq(r.activity)})"><div>${esc(a.label||r.activity)}</div>
+      <div style="margin-top:3px"><span class="pill p-ok">${nb} BC</span> ${ns?`<span class="pill p-sur">${ns} surrogate</span>`:""} ${OK_STATUS.has(a.review_status)?"":`<span class="pill p-warn">review</span>`}</div></td>
+      ${t.columns.map((c,ci)=>{ const v=r.cells[ci]; return `<td class="cell ${v?'x':''}" title="click: toggle · shift-click: edit markers" onclick="cell(event,${ri},${ci})">${v?"X"+marks(v):""}</td>`; }).join("")}</tr>`; }).join("");
+  const conds=rows("Conditions").filter(c=>!c.timeline||c.timeline===t.timeline);
+  const legend=conds.map(c=>`<div><b>${esc(c.marker||c.name.split("_FN_").pop())}</b> ${c.applies_to?`<span class="muted">[${esc(c.applies_to)}]</span> `:""}${esc(c.text)}</div>`).join("");
+  return `<h2>Schedule of activities</h2>
+  <div class="tabs">${tls.map((x,i)=>`<button class="${i===S.tl?'on':''}" onclick="S.tl=${i};render()">${esc(x.timeline)}</button>`).join("")}</div>
+  <p class="muted">${esc(t.description||"")}</p>
+  <div class="soa"><table>${head}<tr><th style="text-align:left">Activity</th>${t.columns.map(()=>"<th></th>").join("")}</tr>${body}</table></div>
+  <div class="card legend" style="margin-top:12px"><b>Footnotes / conditions</b>${legend||'<div class="muted">none</div>'}</div>`;
+}
+function curTl(){ return S.data.SoA[Math.min(S.tl,S.data.SoA.length-1)]; }
+function setCol(ci,k,v){ const c=curTl().columns[ci]; c[k]= v===""?null:(isNaN(+v)||k==="label"||k==="notes"?v:+v); touch(); }
+function cell(ev,ri,ci){
+  const r=curTl().rows[ri]; let v=r.cells[ci]||"";
+  if(ev.shiftKey){ const n=prompt("Cell value (X plus footnote markers, blank to clear)", v||"X"); if(n===null) return; v=n.trim(); }
+  else v = v ? "" : "X";
+  r.cells[ci]=v||null; touch(); render();
+}
+function openAct(name){ S.act=name; go("bcs"); }
+
+// ------------------------------------------------------------------ biomedical concepts
+function bcView(){
+  const acts=rows("Activities"); if(!S.act && acts.length) S.act=acts[0].name;
+  const a=acts.find(x=>x.name===S.act);
+  const list=acts.map(x=>`<div class="it ${x.name===S.act?'on':''}" onclick="S.act=${jsq(x.name)};render()">${esc(x.label||x.name)}
+    <small>${split(x.biomedical_concepts).length} BC · ${split(x.surrogates).length} surrogate ${OK_STATUS.has(x.review_status)?"":" · <span style='color:var(--warn)'>review</span>"}</small></div>`).join("");
+  return `<h2>Biomedical concepts</h2><div class="split"><div class="list">${list}</div><div>${a?actDetail(a):""}</div></div>`;
+}
+function actDetail(a){
+  const bcs=split(a.biomedical_concepts).map(n=>bcByName(n)||{name:n});
+  const surs=split(a.surrogates).map(n=>surByName(n)||{name:n});
+  const bcRows=bcs.map(b=>`<tr><td><b>${esc(b.name)}</b><div class="muted">${esc(b.ncit_code)} ${b.category?"· "+esc(b.category):""}</div></td>
+     <td>${methodPill(b.method)}<div class="muted">${b.confidence??""}</div></td><td>${statusPill(b.review_status)}</td>
+     <td class="ev">${esc(b.evidence||"")}</td>
+     <td style="white-space:nowrap">${OK_STATUS.has(b.review_status)?"":`<button class="sm" onclick="acceptBc(${jsq(b.name)})">Accept</button>`}
+     <button class="sm" onclick="unlink(${jsq(a.name)},'biomedical_concepts',${jsq(b.name)})">Remove</button></td></tr>`).join("");
+  const surRows=surs.map(b=>`<tr><td><b>${esc(b.name)}</b><div class="muted">${esc(b.reference||"")}</div></td>
+     <td><span class="pill p-sur">surrogate</span></td><td>${statusPill(b.review_status)}</td><td class="ev">${esc(b.description||b.evidence||"")}</td>
+     <td style="white-space:nowrap">${OK_STATUS.has(b.review_status)?"":`<button class="sm" onclick="acceptSur(${jsq(b.name)})">Accept</button>`}
+     <button class="sm" onclick="unlink(${jsq(a.name)},'surrogates',${jsq(b.name)})">Remove</button></td></tr>`).join("");
+  return `<div class="card"><div class="toolbar" style="justify-content:space-between;margin:0">
+      <div><b style="font-size:16px">${esc(a.label||a.name)}</b> ${statusPill(a.review_status)}</div>
+      <div><button onclick="acceptActivity(${jsq(a.name)})">Accept activity mapping</button></div></div>
+    <div class="muted" style="margin-top:6px">${esc(a.source_text||"")}</div>
+    ${a.description?`<div style="margin-top:6px">${esc(a.description)}</div>`:""}
+    <div style="margin-top:6px">${methodPill(a.method)} <span class="muted">min confidence ${a.confidence??"–"}</span></div></div>
+  <div class="card"><h3 style="margin-top:0">Mapped concepts</h3>
+    <table><tr><th>Concept</th><th>Method</th><th>Status</th><th>Evidence</th><th></th></tr>${bcRows||`<tr><td colspan=5 class="muted">none</td></tr>`}${surRows}</table></div>
+  <div class="card"><h3 style="margin-top:0">Find / add a concept</h3>
+    <div class="search"><input type="text" id="q" placeholder="e.g. fibrinogen, C64606, anti-HCV…" value="">
+      <select id="spec" style="width:150px"><option value="">any specimen</option><option value="urine">urine</option><option value="blood">blood / serum</option></select>
+      <button onclick="doSearch()">Search</button></div>
+    <div id="res" class="muted">Searches the CDISC BC library, sponsor surrogates and the NCI EVS cache${S.schema.library.evs_online?" / live EVS":""}.</div>
+    <div class="toolbar" style="margin-top:10px"><span class="muted">No match?</span>
+      <input type="text" id="newSur" placeholder="New surrogate name" style="max-width:320px"><button onclick="addSurrogate()">Add surrogate</button></div></div>`;
+}
+function wireBcSearch(){ const q=$("#q"); if(q) q.addEventListener("keydown",e=>{ if(e.key==="Enter") doSearch(); }); }
+async function doSearch(){
+  const q=$("#q").value.trim(); if(!q) return;
+  const res=await api(`/api/bc/search?q=${encodeURIComponent(q)}&specimen=${encodeURIComponent($("#spec").value)}`);
+  S._res=res.results;
+  $("#res").innerHTML = res.results.length ? `<table><tr><th>Concept</th><th>Kind</th><th>Score</th><th>Props</th><th></th></tr>${res.results.map((r,i)=>
+    `<tr><td><b>${esc(r.name)}</b><div class="muted">${esc(r.ncit_code)} · ${esc(r.source||"")}</div>${r.issue?`<div class="pill p-err">${esc(r.issue)}</div>`:""}</td>
+     <td><span class="pill ${r.kind==='surrogate'?'p-sur':r.kind==='ncit'?'p-evs':'p-ok'}">${r.kind==='bc'?'CDISC BC':r.kind==='ncit'?'NCIt only':'surrogate'}</span></td>
+     <td>${r.score}</td><td>${r.properties}</td><td><button class="sm primary" onclick="addResult(${i})">Add</button></td></tr>`).join("")}</table>` : "No candidates.";
+}
+function linkTo(field,name){
+  const a=rows("Activities").find(x=>x.name===S.act);
+  const l=split(a[field]); if(!l.includes(name)) l.push(name); a[field]=join(l);
+  a.method=join([...new Set([...split((a.method||"").replace(/,/g,";")), "manual (reviewer)"])]).replace(/; /g,", ");
+}
+function addResult(i){
+  const r=S._res[i];
+  if(r.kind==="surrogate"){
+    if(!surByName(r.name)) S.data.BCSurrogates.push({name:r.name,label:r.name,reference:r.reference,description:"added by reviewer",evidence:"manual",review_status:"accepted (reviewer)"});
+    linkTo("surrogates",r.name);
+  } else {
+    if(!bcByName(r.name)){
+      S.data.BiomedicalConcepts.push({name:r.name,label:r.name,ncit_code:r.ncit_code,reference:r.reference,category:r.category,source:r.source,
+        method:"manual (reviewer)",confidence:1,evidence:`added by reviewer for '${S.act}'${r.kind==='ncit'?' (NCIt only, no CDISC BC properties)':''}`,
+        review_status:r.kind==="ncit"?"needs review":"accepted (reviewer)"});
+      if(r.category && !rows("BCCategories").some(c=>c.name===r.category)) S.data.BCCategories.push({name:r.category,label:r.category});
+    }
+    linkTo("biomedical_concepts",r.name);
+  }
+  touch(); render(); toast(`Added ${r.name}`);
+}
+function addSurrogate(){
+  const n=$("#newSur").value.trim(); if(!n) return;
+  if(!surByName(n)) S.data.BCSurrogates.push({name:n,label:n,reference:"Sponsor-defined",description:"added by reviewer",evidence:"manual",review_status:"accepted (reviewer)"});
+  linkTo("surrogates",n); touch(); render();
+}
+function unlink(act,field,name){
+  const a=rows("Activities").find(x=>x.name===act); a[field]=join(split(a[field]).filter(x=>x!==name));
+  // drop orphaned concepts so the build does not carry unused BCs
+  const used=rows("Activities").some(x=>split(x.biomedical_concepts).includes(name)||split(x.surrogates).includes(name));
+  if(!used){ S.data.BiomedicalConcepts=rows("BiomedicalConcepts").filter(b=>b.name!==name); S.data.BCSurrogates=rows("BCSurrogates").filter(b=>b.name!==name); }
+  touch(); render();
+}
+function acceptBc(n){ const b=bcByName(n); if(b){ b.review_status="accepted (reviewer)"; touch(); render(); } }
+function acceptSur(n){ const b=surByName(n); if(b){ b.review_status="accepted (reviewer)"; touch(); render(); } }
+function acceptActivity(n){
+  const a=rows("Activities").find(x=>x.name===n);
+  split(a.biomedical_concepts).forEach(x=>{ const b=bcByName(x); if(b) b.review_status="accepted (reviewer)"; });
+  split(a.surrogates).forEach(x=>{ const b=surByName(x); if(b) b.review_status="accepted (reviewer)"; });
+  a.review_status="accepted (reviewer)"; touch(); render(); toast("Activity mapping accepted");
+}
+
+// ------------------------------------------------------------------ review queue
+function review(){
+  const items=reviewItems();
+  if(!items.length) return `<h2>Review queue</h2><div class="empty">Nothing left to review.</div>`;
+  return `<h2>Review queue <span class="muted" style="font-size:14px">${items.length} item(s)</span></h2>
+  <div class="card"><table><tr><th>Type</th><th>Item</th><th>Why</th><th>Used by</th><th>Evidence</th><th></th></tr>
+  ${items.map(it=>`<tr><td><span class="pill ${it.kind==='Surrogate'?'p-sur':it.kind==='BC'?'p-evs':'p-warn'}">${it.kind}</span></td>
+   <td><b>${esc(it.name)}</b>${it.obj?.ncit_code?`<div class="muted">${esc(it.obj.ncit_code)}</div>`:""}</td><td>${it.kind==='Extraction'?'':methodPill(it.why)}</td>
+   <td class="ev">${it.obj?esc(activitiesUsing(it.name).join(", ")):""}</td><td class="ev">${esc(it.ev||"")}</td>
+   <td style="white-space:nowrap">${it.kind==="BC"?`<button class="sm" onclick="acceptBc(${jsq(it.name)})">Accept</button>`:it.kind==="Surrogate"?`<button class="sm" onclick="acceptSur(${jsq(it.name)})">Accept</button>`:""}
+   ${it.obj?`<button class="sm" onclick="jumpTo(${jsq(it.name)})">Open</button>`:""}</td></tr>`).join("")}</table></div>`;
+}
+function jumpTo(n){ const a=rows("Activities").find(x=>split(x.biomedical_concepts).includes(n)||split(x.surrogates).includes(n)); if(a) openAct(a.name); }
+
+// ------------------------------------------------------------------ generic sheets
+function sheets(){
+  const names=[...Object.keys(S.schema.kv_sheets),...Object.keys(S.schema.list_sheets).filter(n=>n!=="Codes")];
+  const sel=`<select style="width:240px" onchange="S.sheet=this.value;render()">${names.map(n=>`<option ${n===S.sheet?'selected':''}>${n}</option>`).join("")}</select>`;
+  let body;
+  const dl=f=>f&&S.schema.ct[f]?`list="ct_${f}"`:"";
+  const datalists=Object.entries(S.schema.ct).map(([f,v])=>`<datalist id="ct_${f}">${v.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>`).join("");
+  if(S.schema.kv_sheets[S.sheet]){
+    const kv=S.data[S.sheet];
+    body=`<div class="card"><table>${S.schema.kv_sheets[S.sheet].map(([k,h,f])=>`<tr><td style="width:190px"><b>${k}</b><div class="muted" style="font-size:12px">${esc(h)}</div></td>
+      <td><input type="text" ${dl(f)} value="${esc(kv[k])}" onchange="S.data['${S.sheet}']['${k}']=this.value||null;touch()"></td></tr>`).join("")}</table></div>`;
+  } else {
+    const cols=S.schema.list_sheets[S.sheet], rs=rows(S.sheet);
+    body=`<div class="toolbar"><button onclick="S.data['${S.sheet}'].push({});touch();render()">+ Add row</button><span class="muted">${rs.length} row(s) · click a cell to edit · values in blue are coded (see Codes)</span></div>
+    <div class="card" style="padding:0;overflow:auto"><table class="ed"><tr>${cols.map(([c])=>`<th>${c}</th>`).join("")}<th></th></tr>
+    ${rs.map((r,ri)=>`<tr>${cols.map(([c,f])=>`<td class="${f?'ct':''}"><div contenteditable="true" onblur="editCell(${ri},'${c}',this.innerText)">${esc(r[c])}</div></td>`).join("")}
+      <td><button class="sm" title="delete row" onclick="S.data['${S.sheet}'].splice(${ri},1);touch();render()">✕</button></td></tr>`).join("")}</table></div>`;
+  }
+  return `<h2>Data sheets</h2><div class="toolbar">${sel}</div>${body}${datalists}`;
+}
+function editCell(ri,c,v){ const r=S.data[S.sheet][ri]; v=v.trim(); if((r[c]??"")===v) return; r[c]=v===""?null:v; touch(); }
+
+// ------------------------------------------------------------------ build
+async function buildUsdm(){
+  busy("Building USDM v4 JSON and validating…");
+  try{
+    const r=await api("/api/build",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(S.data)});
+    if(!r.ok){ toast("Build failed: "+r.error); S.built={issues:[{severity:"error",path:"build",message:r.error}],warnings:[],stats:null,summary:"build failed",usdm:null}; }
+    else { S.built=r; toast(`Built – ${r.summary}`); }
+    S.view="build"; render();
+  }catch(e){ toast("Failed: "+e.message); } finally{ idle(); }
+}
+function buildView(){
+  if(!S.built) return `<h2>Build &amp; validate</h2><div class="empty"><div class="big">Not built yet</div>
+     <div>Turn the current data into USDM v4 JSON and run the structural / referential checks.</div><br><button class="primary" onclick="buildUsdm()">Build &amp; validate</button></div>`;
+  const b=S.built, iss=b.issues.filter(i=>S.issueFilter==="all"||i.severity===S.issueFilter);
+  const nerr=b.issues.filter(i=>i.severity==="error").length, nw=b.issues.filter(i=>i.severity==="warning").length;
+  const stats=b.stats?Object.entries(b.stats).map(([k,v])=>`<div class="tile"><b>${k==="bytes"?(v/1024).toFixed(0)+" KB":v}</b><span>${k}</span></div>`).join(""):"";
+  return `<h2>Build &amp; validate</h2>
+  <div class="toolbar"><span class="pill ${nerr?'p-err':'p-ok'}" style="font-size:14px;padding:3px 10px">${esc(b.summary)}</span>
+    <button onclick="buildUsdm()">Rebuild</button><button class="primary" ${b.usdm?"":"disabled"} onclick="downloadJson()">Download USDM JSON</button>
+    <button onclick="downloadXlsx()">Download workbook</button></div>
+  <div class="grid" style="margin-bottom:14px">${stats}</div>
+  ${b.warnings.length?`<div class="card"><h3 style="margin-top:0">Build warnings (${b.warnings.length})</h3>${b.warnings.map(w=>`<div>• ${esc(w)}</div>`).join("")}</div>`:""}
+  <div class="card"><div class="toolbar"><h3 style="margin:0">Validation issues</h3>
+    ${["error","warning","all"].map(f=>`<button class="sm ${S.issueFilter===f?'primary':''}" onclick="S.issueFilter='${f}';render()">${f} (${f==="error"?nerr:f==="warning"?nw:nerr+nw})</button>`).join("")}</div>
+    ${iss.length?`<table><tr><th>Severity</th><th>Path</th><th>Message</th></tr>${iss.slice(0,400).map(i=>`<tr><td><span class="pill ${i.severity==='error'?'p-err':'p-warn'}">${i.severity}</span></td><td style="font-family:var(--mono);font-size:12px">${esc(i.path)}</td><td>${esc(i.message)}</td></tr>`).join("")}</table>`:`<div class="muted">None.</div>`}
+    <p class="muted" style="margin-bottom:0">This is a structural pre-check against the USDM v4 model. Run CDISC CORE for formal conformance.</p></div>
+  ${b.usdm?`<div class="card"><h3 style="margin-top:0">JSON preview</h3><pre class="json">${esc(JSON.stringify(b.usdm,null,1).slice(0,20000))}${JSON.stringify(b.usdm).length>20000?"\n…":""}</pre></div>`:""}`;
+}
+function save(blob,name){ const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name; a.click(); setTimeout(()=>URL.revokeObjectURL(a.href),2000); }
+function downloadJson(){ save(new Blob([JSON.stringify(S.built.usdm,null,2)],{type:"application/json"}), `${S.data.Study?.name||"study"}_usdm_v4.json`); }
+async function downloadXlsx(){
+  busy("Writing workbook…");
+  try{ const name=`${S.data.Study?.name||"study"}.xlsx`;
+    save(await api(`/api/download/xlsx?name=${encodeURIComponent(name)}`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(S.data)}),name); S.dirty=false; header(); }
+  catch(e){ toast("Failed: "+e.message); } finally{ idle(); }
+}
+window.addEventListener("beforeunload",e=>{ if(S.dirty){ e.preventDefault(); e.returnValue=""; } });
+
+// ------------------------------------------------------------------ boot
+(async()=>{
+  try{ S.schema=await api("/api/schema"); }
+  catch(e){ $("#main").innerHTML=`<div class="empty"><div class="big">Backend not reachable</div>Start it with <code>python -m protocol_to_usdm serve</code> and open the URL it prints.</div>`; return; }
+  render();
+})();
+</script>
+</body>
+</html>

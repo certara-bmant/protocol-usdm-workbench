@@ -1,0 +1,16 @@
+2 error(s), 13 warning(s)
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[0].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[1].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[2].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[3].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[4].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[5].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[6].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[6].properties[0].responseCodes[7].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[7].properties[0].responseCodes[0].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[7].properties[0].responseCodes[1].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[7].properties[0].responseCodes[2].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[7].properties[0].responseCodes[3].code: CDISC code 'SPONSOR' is not a C-code
+  [warning] $.study.versions[0].biomedicalConcepts[14].properties[3].responseCodes[5].code: CDISC code 'SPONSOR' is not a C-code
+  [error] AliasCode_546: duplicate id (5 times)
+  [error] Code_1080: duplicate id (5 times)

@@ -1,0 +1,9 @@
+{
+ "_comment": "Known problems in the seed BC library (harvested from the CTX101-001 dummy). 'open' issues force review of any mapping to that concept; 'corrected' issues were fixed in bc_library_seed.json. Found by tools/verify_ct.py-style EVS checks on 2026-11-02.",
+ "open": {
+  "C179175": "BC 'Adverse Event Free Text Format' carries C179175, whose NCIt preferred name is 'Solicited Adverse Event'. Confirm the correct CDISC BC for unsolicited AEs in the CDISC Library before relying on this mapping."
+ },
+ "corrected": {
+  "C64816": "'Urobilinogen Presence in Urine' was coded C64810 in the source file (C64810 = Nitrite Measurement, duplicated with the Nitrite BC); corrected to C64816 Urobilinogen Measurement."
+ }
+}

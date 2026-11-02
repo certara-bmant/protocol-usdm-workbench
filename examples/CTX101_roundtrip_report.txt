@@ -1,0 +1,20 @@
+validation of rebuilt file: 0 error(s), 13 warning(s)
+  PASS  titles
+  PASS  identifiers
+  PASS  organizations
+  PASS  design codes
+  PASS  arms
+  PASS  epochs
+  PASS  cells
+  PASS  interventions
+  PASS  objectives
+  PASS  eligibility
+  PASS  population
+  PASS  encounters
+  PASS  activities
+  PASS  bcs
+  PASS  bc categories
+  PASS  surrogates
+  PASS  schedule
+  PASS  timings
+18/18 sections identical
